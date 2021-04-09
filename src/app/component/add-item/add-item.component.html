@@ -1,0 +1,15 @@
+
+<form (ngSubmit)="addItem()" #addItemForm="ngForm" fxLayout="row wrap" fxLayoutGap="20px"  >
+  <label for="name">Name* : </label>
+  <input required type="text" pInputText ngModel name="name">
+
+  <label for="description">Description* : </label>
+  <input  required type="text" pInputText ngModel name="description">
+  <label for="price">Price* : </label>
+  <input required type="number" [min]="1"  step=".01" pInputText ngModel name="price">
+  <label for="quantity">Quantity* : </label>
+  <input required type="number" [min]="1" pInputText ngModel name="quantity">
+  <button pButton type="submit" [label]="!editMode?'Add Item':'Update Item'" ></button>
+
+</form>
+<p-messages></p-messages>

@@ -1,0 +1,15 @@
+:host ::ng-deep .no-data{
+  text-align: center;
+}
+
+:host ::ng-deep .p-input{
+  margin: 5px;
+  display: grid;
+  justify-items: center;
+
+
+}
+:host ::ng-deep .less-quant{
+  color: red;
+
+}

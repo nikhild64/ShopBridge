@@ -1,0 +1,16 @@
+:host ::ng-deep form{
+
+  margin: 10px;
+}
+:host ::ng-deep form button{
+
+  margin: 10px;
+}
+:host ::ng-deep form input.ng-invalid.ng-touched{
+
+  border: 1px red solid;
+}
+:host ::ng-deep form label{
+  display: grid;
+  align-items: center;
+}

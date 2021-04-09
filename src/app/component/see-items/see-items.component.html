@@ -1,0 +1,43 @@
+
+<div *ngIf="items.length>0;else noItems" >
+  <div  class="p-input">
+    <label class="p-label" for="search">Enter text to filter</label>
+    <input name="search" type="text" [(ngModel)]="filterValue" pInputText placeholder="Type to search by name">
+  </div>
+
+<p-table  [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,25,50]" [value]="items|filterPipe:filterValue">
+
+<ng-template pTemplate="header">
+      <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Edit/Delete</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-item>
+      <tr   >
+          <td>{{item.name}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.price}}</td>
+          <td [ngClass]="{'less-quant':item.quantity<5}" >{{item.quantity}}</td>
+          <td fxLayout fxLayoutGap="5px">
+            <button  (click)="editItem(item.id)" label="Edit" icon="pi pi-pencil" class="p-button-warning" pButton></button>
+            <button (click)="deleteItem($event,item.id)" label="Delete" icon="pi pi-trash" class="p-button-danger" pButton></button>
+          </td>
+      </tr>
+  </ng-template>
+</p-table>
+
+</div>
+<ng-template #noItems>
+  <p class="no-data">
+    No data to show
+
+  </p>
+</ng-template>
+
+<p-confirmPopup></p-confirmPopup>
+<p-toast></p-toast>
