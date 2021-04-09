@@ -33,7 +33,6 @@ export class SeeItemsComponent implements OnInit, OnDestroy {
     this.dataService.itemsSubject
       .pipe(takeUntil(this.unSubscribeSubject))
       .subscribe((items) => {
-        console.log(items);
 
         this.items = items;
       });
