@@ -55,7 +55,6 @@ export class AddItemComponent implements OnInit {
       this.addItemForm.value.price &&
       this.addItemForm.value.quantity
     ) {
-      console.log(this.addItemForm);
       const item: Iitem = {
         name: this.addItemForm.value.name,
         description: this.addItemForm.value.description,
